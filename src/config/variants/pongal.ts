@@ -1,5 +1,12 @@
 import type {LayoutConfig} from '../types';
 
+/**
+ * Pongal hero photograph — a South Indian gopuram at golden hour.
+ *
+ * Chosen to sit against the wine + antique-gold festival palette rather than
+ * fight it: the warm amber sky picks up the gold accent, and the deep blue
+ * temple base gives the glass card something dark to rest on.
+ */
 const FESTIVAL_BANNER =
   'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=80';
 const DOCTOR_ONE =
@@ -18,17 +25,27 @@ const CARE_IMAGE =
  *
  * Deliberately different from the everyday config: the banner, colours,
  * section order, tab order and a few items all change at runtime.
+ *
+ * The palette is a harvest palette rather than a brand one — deep wine,
+ * antique gold and warm cream — so the festival reads as a different place
+ * the moment the config switches, not as the violet theme with new copy.
  */
 export const pongalConfig: LayoutConfig = {
   version: 1,
   theme: {
-    primary: '#245C3A',
-    secondary: '#B5542D',
-    background: '#FFF6E4',
-    surface: '#FFFDF8',
-    textPrimary: '#2A2118',
-    textSecondary: '#6E5C4C',
-    accent: '#D99A1E',
+    primary: '#7A1F3D',
+    secondary: '#A33B57',
+    background: '#FBF7F0',
+    surface: '#FFFFFF',
+    textPrimary: '#241318',
+    textSecondary: '#6E5B60',
+    accent: '#C9A227',
+    dark: {
+      background: '#150A0F',
+      surface: '#25121A',
+      textPrimary: '#FAF2EE',
+      textSecondary: '#C2A5AC',
+    },
     festival: {
       name: 'Pongal',
       greeting: 'Happy Pongal',
@@ -45,7 +62,7 @@ export const pongalConfig: LayoutConfig = {
     {
       id: 'hero',
       type: 'hero_banner',
-      title: 'Pongal care',
+      title: 'Pongal care week',
       background: {
         kind: 'image',
         value: FESTIVAL_BANNER,
@@ -56,16 +73,20 @@ export const pongalConfig: LayoutConfig = {
           eyebrow: 'Tapza Clinic · Jubilee Hills',
           title: 'Happy Pongal',
           subtitle:
-            'Celebrate with family. We will keep the care close — book a festive health check.',
+            'Sugarcane, kolam and a table full of family — we will keep the care close. Festive health checks all week.',
           ctaLabel: 'Book a festive check',
           imageUrl: FESTIVAL_BANNER,
+          highlights: [
+            'Pongal week · 20% off checkups',
+            'Open today · 9 AM–7 PM',
+          ],
         },
       ],
     },
     {
       id: 'offer',
       type: 'offer_strip',
-      background: {kind: 'color', value: '#D99A1E'},
+      background: {kind: 'color', value: '#C9A227'},
       items: [
         {
           id: 'offer-pongal',
@@ -74,23 +95,35 @@ export const pongalConfig: LayoutConfig = {
       ],
     },
     {
+      id: 'quick-actions',
+      type: 'quick_actions',
+      title: 'What do you need?',
+      background: {kind: 'color', value: '#FFFDF9'},
+      items: [
+        {id: 'book', label: 'Book', icon: 'calendar', action: 'book'},
+        {id: 'prescriptions', label: 'Prescriptions', icon: 'document', action: 'prescriptions'},
+        {id: 'reminders', label: 'Reminders', icon: 'alarm', action: 'reminders'},
+        {id: 'family', label: 'Family', icon: 'people', action: 'family'},
+      ],
+    },
+    {
       id: 'categories',
       type: 'category_chips',
       title: 'Festive care',
-      background: {kind: 'color', value: '#FFF6E4'},
+      background: {kind: 'color', value: '#FBF1E7'},
       items: [
-        {id: 'checkups', label: 'Health checkups', icon: 'heart'},
+        {id: 'family-check', label: 'Family checkups', icon: 'heart'},
         {id: 'consult', label: 'Consult', icon: 'stethoscope'},
         {id: 'pharmacy', label: 'Pharmacy', icon: 'medkit'},
         {id: 'vaccines', label: 'Vaccines', icon: 'shield-checkmark'},
-        {id: 'family', label: 'Family care', icon: 'people'},
+        {id: 'diet', label: 'Diet & sugar', icon: 'flask'},
       ],
     },
     {
       id: 'services',
       type: 'service_grid',
       title: 'Pongal packages',
-      background: {kind: 'color', value: '#FFFDF8'},
+      background: {kind: 'color', value: '#FFFFFF'},
       items: [
         {
           id: 'pongal-package',
@@ -99,6 +132,9 @@ export const pongalConfig: LayoutConfig = {
           imageUrl: CARE_IMAGE,
           badge: 'Pongal special',
           doctorId: 'dr-ananya',
+          doctorName: 'Dr. Ananya Rao',
+          specialty: 'General Physician',
+          feeInr: 500,
         },
         {
           id: 'sugar-panel',
@@ -107,6 +143,9 @@ export const pongalConfig: LayoutConfig = {
           imageUrl: PILLS_IMAGE,
           badge: 'Save ₹200',
           doctorId: 'dr-ananya',
+          doctorName: 'Dr. Ananya Rao',
+          specialty: 'General Physician',
+          feeInr: 500,
         },
         {
           id: 'wound-care',
@@ -114,6 +153,9 @@ export const pongalConfig: LayoutConfig = {
           priceInr: 300,
           imageUrl: CARE_IMAGE,
           doctorId: 'dr-imran',
+          doctorName: 'Dr. Imran Khan',
+          specialty: 'Dermatologist',
+          feeInr: 650,
         },
         {
           id: 'flu-vaccine',
@@ -121,6 +163,9 @@ export const pongalConfig: LayoutConfig = {
           priceInr: 450,
           imageUrl: CARE_IMAGE,
           doctorId: 'dr-lakshmi',
+          doctorName: 'Dr. Lakshmi Prasad',
+          specialty: 'Paediatrician',
+          feeInr: 550,
         },
       ],
     },
@@ -128,7 +173,7 @@ export const pongalConfig: LayoutConfig = {
       id: 'doctors',
       type: 'doctor_carousel',
       title: 'Doctors on duty this Pongal',
-      background: {kind: 'color', value: '#F3EAD8'},
+      background: {kind: 'color', value: '#F5EADD'},
       items: [
         {
           id: 'dr-ananya',
@@ -157,18 +202,6 @@ export const pongalConfig: LayoutConfig = {
           languages: ['Hindi', 'English'],
           nextSlot: 'Tomorrow, 9:30 AM',
         },
-      ],
-    },
-    {
-      id: 'quick-actions',
-      type: 'quick_actions',
-      title: 'Quick actions',
-      background: {kind: 'color', value: '#FFFDF8'},
-      items: [
-        {id: 'book', label: 'Book', icon: 'calendar', action: 'book'},
-        {id: 'prescriptions', label: 'Prescriptions', icon: 'document', action: 'prescriptions'},
-        {id: 'reminders', label: 'Reminders', icon: 'alarm', action: 'reminders'},
-        {id: 'family', label: 'Family', icon: 'people', action: 'family'},
       ],
     },
   ],
