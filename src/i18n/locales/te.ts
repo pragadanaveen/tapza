@@ -1,0 +1,225 @@
+import type {TranslationKey} from '../types';
+
+/**
+ * తెలుగు — patient-facing copy only. Kept short so labels fit the same
+ * chip and button widths as the English source.
+ */
+export const te: Record<TranslationKey, string> = {
+  // Tabs
+  'tab.home': 'హోమ్',
+  'tab.bookings': 'బుకింగ్‌లు',
+  'tab.prescriptions': 'మందులు',
+  'tab.profile': 'ప్రొఫైల్',
+
+  // Home
+  'home.eyebrow': 'టాప్జా క్లినిక్ · జూబ్లీ హిల్స్',
+  'home.greeting': 'నమస్తే, {name}',
+  'home.openTill': 'సాయంత్రం 7 గంటల వరకు తెరిచి ఉంటుంది',
+  'home.festivalBadge': '{greeting} · పండగ సేవ మొదలైంది',
+  'home.bannerUpdating': 'క్లినిక్ కాన్ఫిగ్ నుండి థీమ్ అప్‌డేట్ అవుతోంది…',
+  'home.bannerStale': 'మీరు సేవ్ చేసిన థీమ్ చూపిస్తోంది',
+  'home.bannerFallback': 'యాప్‌తో వచ్చిన థీమ్ వాడుతోంది',
+  'home.bannerError': 'కొత్త థీమ్ లోడ్ కాలేదు',
+  'home.bannerKeepUsing': 'మళ్ళీ కనెక్ట్ అవుతున్నాం, అప్పటివరకు యాప్ వాడుకోండి.',
+  'home.bannerErrorBody': '{error} మీ ప్రస్తుత థీమ్ ఇప్పటికీ పనిచేస్తోంది.',
+  'home.reloadConfig': 'కాన్ఫిగ్ రీలోడ్',
+  'home.emptyTitle': 'ఈరోజు ఏమీ ప్లాన్ లేదు',
+  'home.emptyMessage':
+    'క్లినిక్ ఇంకా హోమ్ సెక్షన్లు ప్రచురించలేదు. అయినా మీరు విజిట్ బుక్ చేయవచ్చు.',
+  'home.footerLine': 'ఇంటి దగ్గరే సేవ · జూబ్లీ హిల్స్, హైదరాబాద్',
+  'home.configVersion': 'కాన్ఫిగ్ v{version}',
+  'home.editionEveryday': 'రోజువారీ సేవ',
+  'home.editionFestival': '{name} ఎడిషన్',
+  'home.compactEveryday': 'జూబ్లీ హిల్స్, హైదరాబాద్',
+  'home.compactFestival': '{name} · జూబ్లీ హిల్స్',
+  'home.seeAll': 'అన్నీ చూడండి',
+  'home.emptyChips': 'కొత్త సేవా ఎంపికలు త్వరలో వస్తాయి.',
+  'home.emptyActions': 'షార్ట్‌కట్లు ఇక్కడ కనిపిస్తాయి.',
+  'home.emptyDoctors': 'ప్రస్తుతం డాక్టర్లు అందుబాటులో లేరు.',
+  'home.emptyServices': 'క్లినిక్ సేవలు ఇక్కడ కనిపిస్తాయి.',
+
+  // Bookings tab
+  'bookings.title': 'బుకింగ్‌లు',
+  'bookings.intro': 'మీ క్లినిక్ విజిట్లు, ప్లాన్ చేసిన సేవలు.',
+  'bookings.upcomingVisits': 'రాబోయే విజిట్లు',
+  'bookings.pastVisits': 'పాత విజిట్లు',
+  'bookings.saving': '{count} సేవ్ అవుతోంది',
+  'bookings.confirmed': 'కన్ఫర్మ్',
+  'bookings.pending': 'కన్ఫర్మ్ అవుతోంది…',
+  'bookings.emptyTitle': 'ఇంకా బుకింగ్ లేదు',
+  'bookings.emptyMessage':
+    'డాక్టర్ లేదా క్లినిక్ సేవ బుక్ చేస్తే, తేదీ, సమయంతో పాటు విజిట్ ఇక్కడ కనిపిస్తుంది.',
+  'bookings.emptyAction': 'సేవ వెతకండి',
+  'bookings.bookAnother': 'మరో విజిట్ బుక్ చేయండి',
+  'bookings.payNote':
+    'చెల్లింపు క్లినిక్‌లో. విజిట్‌కు 2 గంటల ముందు వరకు ఉచితంగా మార్చుకోవచ్చు.',
+  'bookings.holdNote':
+    'ఇక్కడ కన్ఫర్మ్ అయిన బుకింగ్‌లు టాప్జా క్లినిక్‌లో మీ కోసం ఉంచబడతాయి.',
+
+  // Booking flow
+  'book.kicker': 'టాప్జా కేర్',
+  'book.title': 'విజిట్ బుక్ చేయండి',
+  'book.subtitle': 'మీకు సరిపోయే తేదీ, సమయం ఎంచుకోండి.',
+  'book.serviceClinic': 'క్లినిక్ సేవ · క్లినిక్‌లో చెల్లింపు',
+  'book.chooseDoctor': 'డాక్టర్‌ను ఎంచుకోండి',
+  'book.yourDoctor': 'మీ డాక్టర్',
+  'book.change': 'మార్చండి',
+  'book.doctorsErrorTitle': 'డాక్టర్లు లోడ్ కాలేదు',
+  'book.doctorsEmptyTitle': 'డాక్టర్లు అందుబాటులో లేరు',
+  'book.doctorsEmptyMessage':
+    'క్లినిక్ ఇంకా డాక్టర్లను ప్రచురించలేదు. కొద్దిసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
+  'book.refresh': 'రిఫ్రెష్',
+  'book.pickDate': 'తేదీ ఎంచుకోండి',
+  'book.pickTime': 'సమయం ఎంచుకోండి',
+  'book.openSlots': '{count} ఖాళీలు',
+  'book.timesErrorTitle': 'సమయాలు లోడ్ కాలేదు',
+  'book.noSlotsTitle': 'ఈ తేదీలో స్లాట్లు లేవు',
+  'book.noSlotsMessage':
+    'మరుసటి రోజు చూడండి — చాలా డాక్టర్లకు ప్రతి ఉదయం కొత్త సమయాలు ఉంటాయి.',
+  'book.nextDay': 'మరుసటి రోజు చూడండి',
+  'book.slotsHint':
+    'సమయంపై ట్యాప్ చేసి చూసి కన్ఫర్మ్ చేయండి. కన్ఫర్మ్ చేసిన తర్వాతే స్లాట్ రిజర్వ్ అవుతుంది.',
+  'book.slotsTaken': 'ఈ తేదీలోని అన్ని సమయాలు నిండిపోయాయి. వేరే తేదీ ఎంచుకోండి.',
+  'book.chooseDoctorFirst': 'అందుబాటులోని సమయాలు చూడటానికి ముందుగా డాక్టర్‌ను ఎంచుకోండి.',
+  'book.footerNote':
+    'చెల్లింపు మీరు క్లినిక్‌లో చేస్తారు. విజిట్‌కు 2 గంటల ముందు వరకు ఉచితంగా మార్చుకోవచ్చు.',
+  'book.sheetKicker': 'విజిట్ కన్ఫర్మ్',
+  'book.sheetTitle': 'మీ బుకింగ్ చూసుకోండి',
+  'book.sheetSubtitle': 'స్లాట్ హోల్డ్ చేసే ముందు ఒకసారి చూడండి.',
+  'book.date': 'తేదీ',
+  'book.time': 'సమయం',
+  'book.service': 'సేవ',
+  'book.visit': 'విజిట్',
+  'book.visitValue': 'క్లినిక్‌లో · 30 నిమిషాలు',
+  'book.fee': 'కన్సల్టేషన్ ఫీజు',
+  'book.sheetNote':
+    'క్లినిక్‌లో చెల్లించండి. విజిట్‌కు 2 గంటల ముందు వరకు ఉచితంగా రద్దు చేయవచ్చు.',
+  'book.notNow': 'ఇప్పుడు వద్దు',
+  'book.confirm': 'బుకింగ్ కన్ఫర్మ్',
+
+  // Booking result
+  'overlay.confirmedKicker': 'బుకింగ్ కన్ఫర్మ్ అయ్యింది',
+  'overlay.failedKicker': 'బుకింగ్ కాలేదు',
+  'overlay.bookedTitle': 'మీ బుకింగ్ అయ్యింది',
+  'overlay.bookedBody': '{doctor} {when} మిమ్మల్ని కలుస్తారు.',
+  'overlay.doctor': 'డాక్టర్',
+  'overlay.when': 'ఎప్పుడు',
+  'overlay.where': 'ఎక్కడ',
+  'overlay.service': 'సేవ',
+  'overlay.consultation': 'కన్సల్టేషన్',
+  'overlay.feePayClinic': '₹{fee} · క్లినిక్‌లో చెల్లించండి',
+  'overlay.viewBookings': 'నా బుకింగ్‌లు చూడండి',
+  'overlay.backHome': 'హోమ్‌కు తిరిగి',
+  'overlay.tryAgain': 'మళ్ళీ ప్రయత్నించండి',
+  'overlay.chooseAnother': 'వేరే సమయం ఎంచుకోండి',
+  'overlay.close': 'మూసివేయండి',
+  'overlay.whatsapp': 'ధృవీకరణ WhatsApp ద్వారా పంపబడుతుంది.',
+  'overlay.nothingCharged': 'ఏమీ చార్జ్ కాలేదు, ఎలాంటి బుకింగ్ సేవ్ కాలేదు.',
+
+  // Prescriptions list
+  'rx.title': 'ప్రిస్క్రిప్షన్లు',
+  'rx.intro': 'మీ మందులు, డోసులు, ఈరోజు షెడ్యూల్ — అన్నీ ఒకచోట.',
+  'rx.refreshError': 'తాజా ప్రిస్క్రిప్షన్లు రిфреш్ కాలేదు.',
+  'rx.errorTitle': 'ప్రిస్క్రిప్షన్లు లోడ్ కాలేదు',
+  'rx.errorMessage': 'కొద్దిసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
+  'rx.emptyTitle': 'ఇంకా ప్రిస్క్రిప్షన్లు లేవు',
+  'rx.emptyMessage':
+    'విజిట్ తర్వాత డాక్టర్ ప్రిస్క్రిప్షన్ ఉదయం, మధ్యాహ్నం, రాత్రి షెడ్యూల్‌తో ఇక్కడ కనిపిస్తుంది.',
+  'rx.todayDoses': 'ఈరోజు డోసులు',
+  'rx.doseCount': '{total}లో {taken}',
+  'rx.activeOne': '1 క్రియాశీల ప్రిస్క్రిప్షన్ · {percent}% పూర్తి',
+  'rx.activeMany': '{count} క్రియాశీల ప్రిస్క్రిప్షన్లు · {percent}% పూర్తి',
+  'rx.allDone': 'అన్నీ పూర్తి',
+  'rx.keepGoing': 'కొనసాగించండి',
+  'rx.hintAllDone': 'ఈరోజు ప్రతి డోస్ గుర్తించబడింది. బాగుంది.',
+  'rx.hintOpen': 'డోస్ గుర్తించడానికి ప్రిస్క్రిప్షన్ తెరవండి.',
+  'rx.issued': '{date}న జారీ',
+  'rx.active': 'క్రియాశీలం',
+  'rx.completed': 'పూర్తి',
+  'rx.moreMeds': '+ {count} మందులు ఇంకా',
+  'rx.doseToday': 'ఈరోజు {completed}/{total}',
+  'rx.courseDone': 'కోర్స్ పూర్తి',
+  'rx.resetNote':
+    'డోసులు ప్రతిరోజూ రీసెట్ అవుతాయి. ప్రిస్క్రిప్షన్లు రిфреш్ చేయడానికి కిందికి లాగండి.',
+
+  // Prescription detail
+  'rx.detailKicker': 'ప్రిస్క్రిప్షన్',
+  'rx.detailFallbackTitle': 'మీ ప్రిస్క్రిప్షన్',
+  'rx.detailLoading': 'డాక్టర్ నోట్స్ లోడ్ అవుతున్నాయి…',
+  'rx.prescribedBy': 'రాసినవారు',
+  'rx.clinic': 'క్లినిక్',
+  'rx.issuedOn': 'జారీ తేదీ',
+  'rx.courseDay': 'కోర్స్ రోజు',
+  'rx.day': 'రోజు {day}',
+  'rx.medicines': 'మందులు',
+  'rx.dosesTakenToday': 'ఈరోజు {total}లో {taken} డోసులు తీసుకున్నారు',
+  'rx.dayOf': '{days}లో రోజు {day}',
+  'rx.markTaken': 'తీసుకోండి',
+  'rx.taken': 'తీసుకున్నారు',
+  'rx.routineTitle': 'చిన్న అలవాటు, పెద్ద ప్రయోజనం',
+  'rx.routineBody1':
+    'డోస్ తీసుకున్నప్పుడల్లా గుర్తించండి. ఈరోజు గుర్తులు అర్ధరాత్రికి రీసెట్ అవుతాయి, ప్రిస్క్రిప్షన్ మీ చరిత్రలో ఉంటుంది.',
+  'rx.routineBody2':
+    'డోస్ మర్చిపోతే వదిలేయండి, రెట్టింపు చేయవద్దు. అస్వస్థగా అనిపిస్తే క్లినిక్‌కు కాల్ చేయండి.',
+  'rx.noneMarked': 'ఈరోజు ఇంకా ఏ డోస్ గుర్తించలేదు.',
+  'rx.markedToday': 'ఈరోజు {count} డోసులు గుర్తించారు.',
+  'rx.markedTodayOne': 'ఈరోజు 1 డోస్ గుర్తించారు.',
+
+  // Medicine timings
+  'timing.morning': 'ఉదయం',
+  'timing.afternoon': 'మధ్యాహ్నం',
+  'timing.night': 'రాత్రి',
+
+  // Local reminders
+  'remind.title': 'రిమైండర్లు',
+  'remind.hint':
+    'ఈ ప్రిస్క్రిప్షన్ కోసం ఉదయం, మధ్యాహ్నం, రాత్రి లోకల్ నోటిఫికేషన్.',
+  'remind.on': 'రిమైండర్లు ఆన్',
+  'remind.off': 'రిమైండర్లు ఆఫ్',
+  'remind.grant': 'నోటిఫికేషన్లకు అనుమతి ఇవ్వండి',
+  'remind.blocked': 'టాప్జా కేర్ కోసం నోటిఫికేషన్లు ఆఫ్‌లో ఉన్నాయి.',
+  'remind.scheduled': 'ఈరోజు {count} రిమైండర్లు సిద్ధంగా ఉన్నాయి.',
+  'remind.none': 'ఏ రిమైండర్లూ సిద్ధంగా లేవు.',
+  'remind.notifTitle': 'టాప్జా కేర్ · మందుల సమయం',
+  'remind.notifBody': '{timing} డోస్: {medicines}',
+
+  // Profile
+  'profile.title': 'ప్రొఫైల్',
+  'profile.intro':
+    'మీ ఖాతా, లైవ్ థీమ్ మరియు ఈ అసైన్‌మెంట్‌లో ఉపయోగించిన డెమో కంట్రోల్స్.',
+  'profile.appearance': 'రూపం',
+  'profile.theme': 'థీమ్',
+  'profile.language': 'భాష',
+  'profile.languageHint': 'యాప్‌ను ఇంగ్లీష్, హిందీ, తెలుగులో మార్చుకోండి.',
+  'profile.system': 'సిస్టమ్',
+  'profile.light': 'లైట్',
+  'profile.dark': 'డార్క్',
+  'profile.reduceTransparency': 'పారదర్శకత తగ్గించండి',
+  'profile.clinicTheme': 'క్లినిక్ థీమ్',
+  'profile.remoteConfig': 'రిమోట్ కాన్ఫిగ్',
+  'profile.demoResilience': 'డెమో రెసిలియన్స్',
+  'profile.remindersSection': 'మందు రిమైండర్లు',
+  'profile.remindersOn': '{count} ప్రిస్క్రిప్షన్లలో రిమైండర్లు ఆన్‌లో ఉన్నాయి',
+  'profile.remindersOff': 'ఇంకా ఏ ప్రిస్క్రిప్షన్‌లోనూ రిమైండర్లు లేవు',
+  'profile.turnOffAll': 'అన్నీ ఆఫ్ చేయండి',
+  'profile.networkLatency': 'నెట్‌వర్క్ లేటెన్సీ',
+  'profile.simulateFailure': 'ఫెయిల్యూర్ సిమ్యులేట్',
+  'profile.emptyLists': 'ఖాళీ జాబితాలు',
+  'profile.version': 'వర్షన్',
+  'profile.source': 'మూలం',
+  'profile.lastSaved': 'చివరిగా సేవ్',
+  'profile.festival': 'పండగ',
+  'profile.reloadConfig': 'కాన్ఫిగ్ రీలోడ్',
+  'profile.resetDemo': 'డెమో రీసెట్',
+  'profile.notRequested': 'అభ్యర్థన జరగలేదు',
+  'profile.none': 'ఏదీ కాదు',
+  'profile.lightSurface': 'లైట్ సర్ఫేస్',
+  'profile.darkSurface': 'డార్క్ సర్ఫేస్',
+
+  // Shared actions
+  'common.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'common.bookVisit': 'విజిట్ బుక్ చేయండి',
+  'common.reload': 'రీలోడ్',
+  'common.cancel': 'రద్దు',
+  'common.reset': 'రీసెట్',
+};
