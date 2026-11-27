@@ -10,14 +10,18 @@ export type FestivalConfig = {
   bannerImageUrl: string;
 };
 
-export type ThemeConfig = {
-  primary: string;
-  secondary: string;
+export type ThemePalette = {
   background: string;
   surface: string;
   textPrimary: string;
   textSecondary: string;
+};
+
+export type ThemeConfig = ThemePalette & {
+  primary: string;
+  secondary: string;
   accent: string;
+  dark?: ThemePalette;
   festival?: FestivalConfig;
 };
 

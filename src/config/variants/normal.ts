@@ -22,13 +22,19 @@ const CARE_IMAGE =
 export const normalConfig: LayoutConfig = {
   version: 1,
   theme: {
-    primary: '#0F5B57',
-    secondary: '#2F7D6D',
-    background: '#FAF7F1',
+    primary: '#7C3AED',
+    secondary: '#8B5CF6',
+    background: '#FAFAFA',
     surface: '#FFFFFF',
-    textPrimary: '#1E2A27',
-    textSecondary: '#5F6D68',
-    accent: '#E3A23C',
+    textPrimary: '#18181B',
+    textSecondary: '#52525B',
+    accent: '#C4B5FD',
+    dark: {
+      background: '#0B0B0E',
+      surface: '#18181B',
+      textPrimary: '#FAFAFA',
+      textSecondary: '#A1A1AA',
+    },
   },
   tabs: [
     {id: 'home', label: 'Home', icon: 'home', screen: 'home'},
@@ -43,7 +49,7 @@ export const normalConfig: LayoutConfig = {
       title: 'Care, close to home',
       background: {
         kind: 'gradient',
-        value: '#0F5B57,#123F3C',
+        value: '#7C3AED,#4C1D95',
       },
       items: [
         {
@@ -54,6 +60,7 @@ export const normalConfig: LayoutConfig = {
             'Book a doctor, order medicines or check a prescription — all in one place.',
           ctaLabel: 'Book a visit',
           imageUrl: CLINIC_IMAGE,
+          highlights: ['Open today · 9 AM–7 PM', 'Jubilee Hills, Hyderabad'],
         },
       ],
     },
@@ -73,7 +80,7 @@ export const normalConfig: LayoutConfig = {
       id: 'categories',
       type: 'category_chips',
       title: 'Explore care',
-      background: {kind: 'color', value: '#F4EFE6'},
+      background: {kind: 'color', value: '#EDE9FE'},
       items: [
         {id: 'consult', label: 'Consult', icon: 'stethoscope'},
         {id: 'labs', label: 'Lab tests', icon: 'flask'},
@@ -86,7 +93,7 @@ export const normalConfig: LayoutConfig = {
       id: 'doctors',
       type: 'doctor_carousel',
       title: 'Doctors available today',
-      background: {kind: 'color', value: '#EAF1ED'},
+      background: {kind: 'color', value: '#F5F3FF'},
       items: [
         {
           id: 'dr-ananya',
@@ -130,6 +137,9 @@ export const normalConfig: LayoutConfig = {
           imageUrl: CARE_IMAGE,
           badge: 'Popular',
           doctorId: 'dr-ananya',
+          doctorName: 'Dr. Ananya Rao',
+          specialty: 'General Physician',
+          feeInr: 500,
         },
         {
           id: 'diabetes-panel',
@@ -137,6 +147,9 @@ export const normalConfig: LayoutConfig = {
           priceInr: 599,
           imageUrl: PILLS_IMAGE,
           doctorId: 'dr-ananya',
+          doctorName: 'Dr. Ananya Rao',
+          specialty: 'General Physician',
+          feeInr: 500,
         },
         {
           id: 'dressing',
@@ -144,6 +157,9 @@ export const normalConfig: LayoutConfig = {
           priceInr: 300,
           imageUrl: CLINIC_IMAGE,
           doctorId: 'dr-imran',
+          doctorName: 'Dr. Imran Khan',
+          specialty: 'Dermatologist',
+          feeInr: 650,
         },
         {
           id: 'flu-vaccine',
@@ -152,13 +168,16 @@ export const normalConfig: LayoutConfig = {
           imageUrl: CARE_IMAGE,
           badge: 'Walk-in',
           doctorId: 'dr-lakshmi',
+          doctorName: 'Dr. Lakshmi Prasad',
+          specialty: 'Paediatrician',
+          feeInr: 550,
         },
       ],
     },
     {
       id: 'offer',
       type: 'offer_strip',
-      background: {kind: 'color', value: '#E3A23C'},
+      background: {kind: 'color', value: '#F59E0B'},
       items: [
         {
           id: 'offer-everyday',
