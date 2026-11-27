@@ -8,10 +8,11 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 
 import type {SectionBackground} from '../../config/types';
-import {alpha, contrastRatio, readableOn} from '../../theme/color';
+import {alpha, contrastRatio} from '../../theme/color';
 import {useTheme} from '../../theme/ThemeProvider';
 import type {Theme} from '../../theme/types';
 import {useSectionStyles} from '../styles';
+import {GlassSurface} from './GlassSurface';
 
 export type SectionTone = {
   text: string;
@@ -42,29 +43,33 @@ export function sectionTone(
   if (background.kind === 'image') {
     return {
       text: '#FFFFFF',
-      muted: 'rgba(255, 255, 255, 0.8)',
+      muted: 'rgba(255, 255, 255, 0.82)',
       chip: 'rgba(255, 255, 255, 0.14)',
       border: 'rgba(255, 255, 255, 0.24)',
       scrim: theme.colors.scrim,
     };
   }
 
-  const stops =
-    background.kind === 'gradient'
-      ? background.value
-          .split(',')
-          .map(stop => stop.trim())
-          .filter(Boolean)
-      : [background.value];
+  if (background.kind === 'color') {
+    return {
+      text: theme.colors.textPrimary,
+      muted: theme.colors.textSecondary,
+      chip: alpha(theme.colors.textPrimary, theme.isDark ? 0.08 : 0.05),
+      border: theme.glass.border,
+      scrim: 'transparent',
+    };
+  }
+
+  const stops = background.value
+    .split(',')
+    .map(stop => stop.trim())
+    .filter(Boolean);
   const safeStops =
-    background.kind === 'gradient' && stops.length < 2
+    stops.length < 2
       ? [theme.colors.background, theme.colors.surface]
       : stops;
 
-  const text =
-    background.kind === 'gradient'
-      ? textForGradient(safeStops, theme)
-      : readableOn(background.value, '#FFFFFF', theme.colors.textPrimary);
+  const text = textForGradient(safeStops, theme);
 
   return {
     text,
@@ -112,24 +117,28 @@ export function SectionSurface({
       .filter(Boolean);
 
     return (
-      <LinearGradient
-        colors={stops.length > 1 ? stops : [theme.colors.surface, theme.colors.background]}
-        start={{x: 0, y: 0}}
-        end={{x: 1, y: 1}}
-        style={[styles.surface, style]}>
-        <View style={[styles.content, contentStyle]}>{children(tone)}</View>
-      </LinearGradient>
+      <GlassSurface
+        radius={theme.radii.xxl}
+        style={style}
+        contentStyle={contentStyle}>
+        <LinearGradient
+          colors={stops.length > 1 ? stops : [theme.colors.primaryFill, theme.colors.secondary]}
+          start={{x: 0, y: 0}}
+          end={{x: 1, y: 1}}
+          style={styles.gradientWash}
+        />
+        <View style={styles.contentInner}>{children(tone)}</View>
+      </GlassSurface>
     );
   }
 
   return (
-    <View
-      style={[
-        styles.surface,
-        {backgroundColor: background.value},
-        style,
-      ]}>
-      <View style={[styles.content, contentStyle]}>{children(tone)}</View>
-    </View>
+    <GlassSurface
+      radius={theme.radii.xxl}
+      tint={alpha(background.value, theme.isDark ? 0.14 : 0.24)}
+      style={style}
+      contentStyle={contentStyle}>
+      {children(tone)}
+    </GlassSurface>
   );
 }

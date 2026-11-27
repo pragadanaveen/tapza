@@ -4,10 +4,12 @@ import {
   useMemo,
   type ReactNode,
 } from 'react';
+import {useColorScheme} from 'react-native';
 
 import type {LayoutConfig} from '../config/types';
+import {useAppearanceStore} from '../store/appearanceStore';
 import {buildTheme} from './buildTheme';
-import type {Theme} from './types';
+import type {ResolvedAppearance, Theme} from './types';
 
 const ThemeContext = createContext<Theme | null>(null);
 
@@ -17,7 +19,19 @@ type ThemeProviderProps = {
 };
 
 export function ThemeProvider({config, children}: ThemeProviderProps) {
-  const theme = useMemo(() => buildTheme(config.theme), [config.theme]);
+  const preference = useAppearanceStore(store => store.preference);
+  const systemScheme = useColorScheme();
+  const appearance: ResolvedAppearance =
+    preference === 'system'
+      ? systemScheme === 'dark'
+        ? 'dark'
+        : 'light'
+      : preference;
+
+  const theme = useMemo(
+    () => buildTheme(config.theme, appearance),
+    [appearance, config.theme],
+  );
 
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>

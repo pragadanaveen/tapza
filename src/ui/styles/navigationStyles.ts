@@ -1,58 +1,72 @@
 import {StyleSheet} from 'react-native';
 
-import {alpha} from '../../theme/color';
 import type {Theme} from '../../theme/types';
 
 export function createNavigationStyles(theme: Theme) {
-  const {colors, spacing, radii, typography} = theme;
+  const {colors, spacing, radii, typography, glass} = theme;
 
   return StyleSheet.create({
+    tabBarWrap: {
+      position: 'absolute',
+      left: spacing.lg,
+      right: spacing.lg,
+      zIndex: 50,
+    },
     tabBar: {
       flexDirection: 'row',
-      alignItems: 'flex-start',
-      backgroundColor: colors.surface,
-      borderTopWidth: 1,
-      borderTopColor: colors.border,
-      paddingTop: spacing.xs,
-      paddingHorizontal: spacing.sm,
-      shadowColor: colors.textPrimary,
-      shadowOffset: {width: 0, height: -4},
-      shadowOpacity: 0.04,
-      shadowRadius: 12,
-      elevation: 8,
+      alignItems: 'center',
+      gap: spacing.xs,
+      padding: 6,
+      minHeight: 60,
     },
     tabItem: {
-      flex: 1,
-      minHeight: 56,
+      flexGrow: 1,
+      flexShrink: 1,
+      minHeight: 44,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: spacing.xs,
-      gap: 2,
+      borderRadius: radii.pill,
+    },
+    tabItemActive: {
+      flexGrow: 0,
+      flexShrink: 0,
+      flexBasis: 'auto',
+      flexDirection: 'row',
+      gap: 6,
+      paddingHorizontal: spacing.md,
+      backgroundColor: glass.activePill,
     },
     tabItemPressed: {
-      opacity: 0.72,
+      opacity: 0.74,
     },
     tabIconWrap: {
-      minWidth: 40,
-      height: 28,
-      paddingHorizontal: spacing.sm,
-      borderRadius: radii.pill,
+      minWidth: 44,
+      minHeight: 44,
       alignItems: 'center',
       justifyContent: 'center',
     },
     tabIconWrapActive: {
-      backgroundColor: alpha(colors.primary, 0.12),
+      minWidth: 0,
+      minHeight: 0,
     },
     tabLabel: {
       ...typography.caption,
-      fontSize: 11,
-      lineHeight: 14,
-      fontWeight: '500',
-      color: colors.textSecondary,
+      fontFamily: typography.label.fontFamily,
+      fontSize: 12,
+      lineHeight: 16,
+      color: glass.activePillText,
     },
-    tabLabelActive: {
-      color: colors.primary,
-      fontWeight: '700',
+    tabBarSpacer: {
+      height: 88,
+    },
+    tabBadge: {
+      position: 'absolute',
+      top: 4,
+      right: 8,
+      minWidth: 8,
+      height: 8,
+      borderRadius: 4,
+      backgroundColor: colors.danger,
     },
   });
 }

@@ -22,10 +22,10 @@ export function createCommonStyles(theme: Theme) {
     },
     screenContent: {
       paddingHorizontal: spacing.lg,
-      paddingBottom: 120,
+      paddingBottom: 140,
     },
     scrollContent: {
-      paddingBottom: 120,
+      paddingBottom: 140,
     },
     container: {
       paddingHorizontal: spacing.lg,
@@ -70,10 +70,44 @@ export function createCommonStyles(theme: Theme) {
     },
     divider: {
       height: StyleSheet.hairlineWidth,
-      backgroundColor: colors.border,
+      backgroundColor: theme.glass.border,
       marginVertical: spacing.lg,
     },
     textCenter: {textAlign: 'center'},
+
+    // Page headings used across the tab screens
+    pageHeader: {
+      paddingTop: spacing.sm,
+      paddingBottom: spacing.lg,
+      gap: spacing.xs,
+    },
+    pageKicker: {
+      ...typography.caption,
+      fontWeight: '700',
+      letterSpacing: 1.1,
+      textTransform: 'uppercase',
+      color: colors.primary,
+    },
+    pageTitle: {
+      ...typography.h1,
+      color: colors.textPrimary,
+    },
+    pageIntro: {
+      ...typography.body,
+      color: colors.textSecondary,
+    },
+    pageHeaderRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: spacing.md,
+    },
+    inlineRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: spacing.sm,
+    },
+    flexShrink: {flexShrink: 1},
 
     // Type scale
     typeDisplay: {...typography.display},
@@ -88,7 +122,7 @@ export function createCommonStyles(theme: Theme) {
     toneSecondary: {color: colors.textSecondary},
     toneOnPrimary: {color: colors.onPrimary},
     toneOnAccent: {color: colors.onAccent},
-    toneAccent: {color: colors.accent},
+    toneAccent: {color: colors.accentText},
     tonePrimaryBrand: {color: colors.primary},
     toneDanger: {color: colors.danger},
     toneSuccess: {color: colors.success},
@@ -96,16 +130,16 @@ export function createCommonStyles(theme: Theme) {
 
     // Surfaces
     card: {
-      backgroundColor: colors.surface,
-      borderRadius: radii.lg,
+      backgroundColor: theme.glass.tintSoft,
+      borderRadius: radii.xl,
       borderWidth: 1,
-      borderColor: colors.border,
+      borderColor: theme.glass.border,
       padding: spacing.lg,
-      shadowColor: colors.textPrimary,
-      shadowOffset: {width: 0, height: 2},
-      shadowOpacity: 0.04,
-      shadowRadius: 8,
-      elevation: 1,
+      shadowColor: theme.glass.shadow,
+      shadowOffset: {width: 0, height: 8},
+      shadowOpacity: 0.45,
+      shadowRadius: 18,
+      elevation: 4,
     },
     cardTight: {
       padding: spacing.md,
@@ -116,15 +150,15 @@ export function createCommonStyles(theme: Theme) {
       gap: spacing.md,
     },
     cardQuiet: {
-      backgroundColor: colors.subtle,
+      backgroundColor: theme.glass.tintSoft,
       borderRadius: radii.lg,
       padding: spacing.lg,
     },
     panel: {
-      backgroundColor: colors.surface,
-      borderRadius: radii.xl,
+      backgroundColor: theme.glass.tintSoft,
+      borderRadius: radii.xxl,
       borderWidth: 1,
-      borderColor: colors.border,
+      borderColor: theme.glass.border,
       padding: spacing.lg,
     },
 
@@ -141,19 +175,19 @@ export function createCommonStyles(theme: Theme) {
       gap: spacing.sm,
     },
     buttonPrimary: {
-      backgroundColor: colors.primary,
-      borderColor: colors.primary,
+      backgroundColor: colors.primaryFill,
+      borderColor: colors.primaryFill,
     },
     buttonSecondary: {
-      backgroundColor: colors.surface,
-      borderColor: colors.border,
+      backgroundColor: theme.glass.tintSoft,
+      borderColor: theme.glass.border,
     },
     buttonGhost: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
     },
     buttonSm: {
-      minHeight: 40,
+      minHeight: hit.min,
       paddingHorizontal: spacing.md,
       borderRadius: radii.sm,
     },
@@ -192,9 +226,9 @@ export function createCommonStyles(theme: Theme) {
       width: hit.min,
       height: hit.min,
       borderRadius: radii.pill,
-      backgroundColor: colors.surface,
+      backgroundColor: theme.glass.tintSoft,
       borderWidth: 1,
-      borderColor: colors.border,
+      borderColor: theme.glass.border,
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -208,20 +242,20 @@ export function createCommonStyles(theme: Theme) {
 
     // Chips
     chip: {
-      minHeight: 40,
+      minHeight: hit.min,
       paddingHorizontal: spacing.md,
       borderRadius: radii.pill,
       borderWidth: 1,
-      borderColor: colors.border,
-      backgroundColor: colors.surface,
+      borderColor: theme.glass.border,
+      backgroundColor: theme.glass.tintSoft,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
       gap: spacing.xs,
     },
     chipSelected: {
-      backgroundColor: colors.primary,
-      borderColor: colors.primary,
+      backgroundColor: colors.primaryFill,
+      borderColor: colors.primaryFill,
     },
     chipPressed: {
       opacity: 0.8,
@@ -243,22 +277,22 @@ export function createCommonStyles(theme: Theme) {
       gap: spacing.xs,
       padding: spacing.xs,
       borderRadius: radii.pill,
-      backgroundColor: colors.subtle,
+      backgroundColor: theme.glass.tintSoft,
       borderWidth: 1,
-      borderColor: colors.border,
+      borderColor: theme.glass.border,
     },
     segmentedItem: {
       flex: 1,
-      minHeight: 40,
+      minHeight: hit.min,
       borderRadius: radii.pill,
       alignItems: 'center',
       justifyContent: 'center',
       paddingHorizontal: spacing.sm,
     },
     segmentedItemActive: {
-      backgroundColor: colors.surface,
+      backgroundColor: theme.glass.tintStrong,
       borderWidth: 1,
-      borderColor: colors.border,
+      borderColor: theme.glass.borderStrong,
     },
     segmentedText: {
       ...typography.label,
@@ -287,7 +321,7 @@ export function createCommonStyles(theme: Theme) {
       fontWeight: '600',
     },
     badgeTextNeutral: {color: colors.textSecondary},
-    badgeTextAccent: {color: colors.textPrimary},
+    badgeTextAccent: {color: colors.accentText},
     badgeTextSuccess: {color: colors.success},
     badgeTextWarning: {color: colors.warning},
     badgeTextDanger: {color: colors.danger},

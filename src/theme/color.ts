@@ -64,6 +64,24 @@ export function alpha(color: string, opacity: number): string {
   return `rgba(${red}, ${green}, ${blue}, ${opacity})`;
 }
 
+/**
+ * Mixes a colour toward white.
+ *
+ * Used to build a readable tint of the configured brand colour for dark
+ * surfaces, so a festival palette keeps its own hue in dark mode instead of
+ * falling back to a hardcoded violet.
+ */
+export function tint(color: string, amount: number): string {
+  const [red, green, blue] = parseHex(color);
+  const ratio = Math.min(Math.max(amount, 0), 1);
+  const mix = (channel: number) =>
+    Math.round(channel + (255 - channel) * ratio)
+      .toString(16)
+      .padStart(2, '0');
+
+  return `#${mix(red)}${mix(green)}${mix(blue)}`;
+}
+
 export function withContrast(
   color: string,
   background: string,

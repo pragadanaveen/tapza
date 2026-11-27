@@ -32,6 +32,12 @@ const ICONS: Record<string, {active: IoniconName; inactive: IoniconName}> = {
   sparkles: {active: 'sparkles', inactive: 'sparkles-outline'},
   chevron: {active: 'chevron-forward', inactive: 'chevron-forward'},
   arrow: {active: 'arrow-forward', inactive: 'arrow-forward'},
+  'arrow-back': {active: 'arrow-back', inactive: 'arrow-back'},
+  sunny: {active: 'sunny', inactive: 'sunny-outline'},
+  'partly-sunny': {active: 'partly-sunny', inactive: 'partly-sunny-outline'},
+  moon: {active: 'moon', inactive: 'moon-outline'},
+  megaphone: {active: 'megaphone', inactive: 'megaphone-outline'},
+  'close-circle': {active: 'close-circle', inactive: 'close-circle-outline'},
 };
 
 export function iconName(name: string, active = false): IoniconName {
