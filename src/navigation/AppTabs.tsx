@@ -1,4 +1,7 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  createBottomTabNavigator,
+  type BottomTabBarProps,
+} from '@react-navigation/bottom-tabs';
 
 import {BookingsScreen} from '../screens/BookingsScreen';
 import {HomeScreen} from '../screens/HomeScreen';
@@ -9,6 +12,10 @@ import type {RootTabParamList} from './types';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
+const renderTabBar = (props: BottomTabBarProps) => (
+  <ConfigTabBar {...props} />
+);
+
 export function AppTabs() {
   return (
     <Tab.Navigator
@@ -18,7 +25,7 @@ export function AppTabs() {
         tabBarHideOnKeyboard: true,
         animation: 'fade',
       }}
-      tabBar={props => <ConfigTabBar {...props} />}>
+      tabBar={renderTabBar}>
       <Tab.Screen name="home" component={HomeScreen} />
       <Tab.Screen name="bookings" component={BookingsScreen} />
       <Tab.Screen name="prescriptions" component={PrescriptionsScreen} />
